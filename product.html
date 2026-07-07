@@ -135,7 +135,7 @@ footer .fbrand .sub{font-size:8.5px;letter-spacing:.42em;text-transform:uppercas
       <!-- GALLERY -->
       <div class="gallery">
         <div class="stage" id="stage">
-          <img class="on" src="gift-set.jpg" alt="Hévara gift box with bonnet, pouch and card" />
+          <img class="on" src="box-navy.jpg" alt="Hévara gift box with bonnet, pouch and card" />
           <img src="product-signature.jpg" alt="The Signature Bonnet on gold silk" />
           <img src="product-bonnet.jpg" alt="Bonnet styled on silk bedding" />
           <img src="detail-macro.jpg" alt="Silk, bow, lace and Hévara label detail" />
@@ -145,7 +145,7 @@ footer .fbrand .sub{font-size:8.5px;letter-spacing:.42em;text-transform:uppercas
           <button class="arrow next" aria-label="Next image"><svg viewBox="0 0 24 24"><path d="M9 6l6 6-6 6"/></svg></button>
         </div>
         <div class="thumbs" id="thumbs">
-          <button class="active"><img src="gift-set.jpg" alt=""></button>
+          <button class="active"><img src="box-navy.jpg" alt=""></button>
           <button><img src="product-signature.jpg" alt=""></button>
           <button><img src="product-bonnet.jpg" alt=""></button>
           <button><img src="detail-macro.jpg" alt=""></button>
@@ -170,11 +170,11 @@ footer .fbrand .sub{font-size:8.5px;letter-spacing:.42em;text-transform:uppercas
         <div class="colour">
           <div class="clbl">Colour — <b id="colourName">Navy</b></div>
           <div class="swatches">
-            <button class="swatch active" style="background:#141c30" data-name="Navy" data-src="product-signature.jpg" aria-label="Navy"></button>
-            <button class="swatch" style="background:#0e0e12" data-name="Black" data-src="color-black.jpg" aria-label="Black"></button>
-            <button class="swatch" style="background:#5e1a2b" data-name="Burgundy" data-src="color-burgundy.jpg" aria-label="Burgundy"></button>
-            <button class="swatch" style="background:#3d241c" data-name="Espresso" data-src="color-espresso.jpg" aria-label="Espresso"></button>
-            <button class="swatch" style="background:#b07c6f" data-name="Rose" data-src="color-rose.jpg" aria-label="Rose"></button>
+            <button class="swatch active" style="background:#141c30" data-name="Navy" data-src="box-navy.jpg" aria-label="Navy"></button>
+            <button class="swatch" style="background:#0e0e12" data-name="Black" data-src="box-black.jpg" aria-label="Black"></button>
+            <button class="swatch" style="background:#5e1a2b" data-name="Burgundy" data-src="box-burgundy.jpg" aria-label="Burgundy"></button>
+            <button class="swatch" style="background:#3d241c" data-name="Espresso" data-src="box-espresso.jpg" aria-label="Espresso"></button>
+            <button class="swatch" style="background:#b07c6f" data-name="Rose" data-src="box-rose.jpg" aria-label="Rose"></button>
           </div>
         </div>
         <div class="buy-row">
@@ -217,16 +217,16 @@ document.querySelector('.arrow.prev').addEventListener('click',()=>show(i-1));
 document.querySelector('.arrow.next').addEventListener('click',()=>show(i+1));
 addEventListener('keydown',e=>{if(e.key==='ArrowLeft')show(i-1);if(e.key==='ArrowRight')show(i+1)});
 
-// colour selector — swaps the main product photo (gallery slide 2)
+// colour selector — swaps the gift-box photo (gallery slide 1)
 const colourName=document.getElementById('colourName');
 document.querySelectorAll('.swatch').forEach(sw=>{
   sw.addEventListener('click',()=>{
     document.querySelectorAll('.swatch').forEach(s=>s.classList.remove('active'));
     sw.classList.add('active');
     colourName.textContent=sw.dataset.name;
-    imgs[1].src=sw.dataset.src;
-    thumbs[1].querySelector('img').src=sw.dataset.src;
-    show(1);
+    imgs[0].src=sw.dataset.src;
+    thumbs[0].querySelector('img').src=sw.dataset.src;
+    show(0);
   });
 });
 

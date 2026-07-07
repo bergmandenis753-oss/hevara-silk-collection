@@ -1,0 +1,12 @@
+{
+  "name": "hevara-silk-collection",
+  "version": "1.0.0",
+  "description": "Hévara Silk Collection — premium silk bonnet landing page",
+  "private": true,
+  "scripts": {
+    "start": "serve . -l ${PORT:-3000}"
+  },
+  "dependencies": {
+    "serve": "14.2.3"
+  }
+}

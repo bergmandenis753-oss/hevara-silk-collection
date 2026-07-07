@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Hévara — Silk Collection</title>
+<meta name="description" content="Premium mulberry silk bonnets and accessories for your nightly ritual. Luxury you wear. Care you feel." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Outfit:wght@300;400;500;600&family=Pinyon+Script&display=swap" rel="stylesheet" />
+<style>
+:root{
+  --navy:#141c30;
+  --navy-2:#1c2743;
+  --cream:#f5ede2;
+  --cream-2:#ede2d2;
+  --gold:#c9a86a;
+  --gold-2:#b8945a;
+  --muted:#8a8377;
+  --ink:#101623;
+  --serif:'Cormorant Garamond',Georgia,serif;
+  --sans:'Outfit',system-ui,sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  font-family:var(--sans);
+  background:var(--cream);
+  color:var(--ink);
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+img,video{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1240px;margin:0 auto;padding:0 32px}
+.eyebrow{
+  font-size:12px;letter-spacing:.32em;text-transform:uppercase;
+  font-weight:500;color:var(--gold-2);
+}
+.serif{font-family:var(--serif)}
+
+/* ---------- HEADER ---------- */
+header{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:20px 40px;
+  transition:background .4s ease, padding .4s ease, box-shadow .4s ease;
+}
+header.scrolled{
+  background:rgba(245,237,226,.86);
+  backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);
+  padding:12px 40px;box-shadow:0 1px 0 rgba(20,28,48,.08);
+}
+header nav{display:flex;gap:34px}
+header nav a{
+  font-size:12px;letter-spacing:.18em;text-transform:uppercase;
+  font-weight:500;color:var(--cream);transition:color .3s,opacity .3s;opacity:.85;
+}
+header.scrolled nav a{color:var(--navy)}
+header nav a:hover{opacity:1;color:var(--gold)}
+.brand{text-align:center;line-height:1;color:var(--cream);transition:color .4s}
+header.scrolled .brand{color:var(--navy)}
+.brand .name{font-family:var(--serif);font-size:30px;font-weight:600;letter-spacing:.02em}
+.brand .sub{font-size:9px;letter-spacing:.42em;text-transform:uppercase;margin-top:2px;opacity:.75}
+.hicons{display:flex;gap:22px;align-items:center;color:var(--cream);transition:color .4s}
+header.scrolled .hicons{color:var(--navy)}
+.hicons svg{width:20px;height:20px;cursor:pointer;transition:color .3s}
+.hicons svg:hover{color:var(--gold)}
+.nav-left,.nav-right{flex:1;display:flex;align-items:center}
+.nav-right{justify-content:flex-end;gap:28px}
+
+/* ---------- HERO ---------- */
+.hero{position:relative;min-height:100dvh;display:flex;align-items:center;overflow:hidden;background:var(--navy)}
+.hero img.bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center center;z-index:0}
+@media(max-width:820px){.hero img.bg{object-position:72% center}}
+.hero .veil{
+  position:absolute;inset:0;z-index:1;
+  background:linear-gradient(90deg,rgba(15,20,35,.78) 0%,rgba(15,20,35,.45) 45%,rgba(15,20,35,.15) 100%),
+             linear-gradient(0deg,rgba(15,20,35,.55) 0%,rgba(15,20,35,0) 40%);
+}
+.hero .wrap{position:relative;z-index:2;width:100%}
+.hero-content{max-width:620px;color:var(--cream)}
+.hero-content .eyebrow{color:var(--cream);opacity:.9;display:flex;align-items:center;gap:14px}
+.hero-content .eyebrow::after{content:"";width:56px;height:1px;background:rgba(245,237,226,.5)}
+.hero-content h1{
+  font-family:var(--serif);font-weight:500;
+  font-size:clamp(48px,7vw,92px);line-height:.98;margin:24px 0 22px;
+}
+.hero-content p{font-size:clamp(16px,1.4vw,19px);line-height:1.6;max-width:400px;opacity:.9;font-weight:300}
+.btn{
+  display:inline-block;margin-top:34px;
+  padding:16px 34px;background:var(--gold);color:var(--navy);
+  font-size:12px;letter-spacing:.22em;text-transform:uppercase;font-weight:600;
+  transition:transform .3s ease, background .3s ease;
+}
+.btn:hover{background:var(--cream);transform:translateY(-2px)}
+.btn.ghost{background:transparent;border:1px solid var(--gold);color:var(--gold)}
+.btn.ghost:hover{background:var(--gold);color:var(--navy)}
+.hero-badges{
+  position:absolute;bottom:88px;right:40px;z-index:2;
+  display:flex;gap:36px;color:var(--cream);
+}
+.hbadge{text-align:center;width:96px;opacity:.9}
+.hbadge svg{width:30px;height:30px;margin:0 auto 12px;stroke:var(--gold);fill:none;stroke-width:1.4}
+.hbadge span{font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;line-height:1.5;display:block}
+.ticker{
+  position:absolute;bottom:0;left:0;right:0;z-index:3;
+  background:var(--navy);color:var(--cream);
+  display:flex;justify-content:center;gap:0;
+  font-size:11px;letter-spacing:.2em;text-transform:uppercase;
+}
+.ticker span{padding:16px 40px;position:relative}
+.ticker span:not(:last-child)::after{content:"";position:absolute;right:0;top:50%;transform:translateY(-50%);width:1px;height:14px;background:rgba(245,237,226,.25)}
+@media(max-width:900px){.hero-badges{display:none}.ticker span{padding:14px 16px;font-size:9px}}
+@media(max-width:760px){
+  header{padding:14px 18px}
+  header nav{display:none}
+  .brand .name{font-size:23px}
+  .ticker{flex-wrap:wrap}
+  .ticker span{padding:11px 12px;font-size:8.5px}
+  .ticker span:nth-child(2)::after,.ticker span:last-child::after{display:none}
+  .hero-content{max-width:100%}
+  .hero-content h1{font-size:clamp(42px,12vw,60px)}
+  section.block,.editorial{padding:72px 0}
+  .wrap{padding:0 22px}
+}
+
+/* ---------- VIDEO REEL (plays once, stops on last frame) ---------- */
+.reel{position:relative;height:100dvh;overflow:hidden;background:var(--navy);display:flex;align-items:center;justify-content:center}
+.reel video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0}
+.reel .veil2{position:absolute;inset:0;z-index:1;background:linear-gradient(0deg,rgba(15,20,35,.62) 0%,rgba(15,20,35,.12) 45%,rgba(15,20,35,.4) 100%)}
+.reel .cap{position:relative;z-index:3;text-align:center;color:var(--cream);max-width:620px;padding:0 24px}
+.reel .cap h2{font-family:var(--serif);font-weight:500;font-size:clamp(34px,5vw,62px);line-height:1.04;margin:18px 0 16px}
+.reel .cap p{font-weight:300;font-size:17px;line-height:1.65;opacity:.9;max-width:440px;margin:0 auto}
+
+/* ---------- FEATURES / BENEFITS ---------- */
+section.block{padding:120px 0}
+.sec-head{text-align:center;max-width:640px;margin:0 auto 70px}
+.sec-head h2{font-family:var(--serif);font-weight:500;font-size:clamp(34px,4.5vw,54px);line-height:1.05;margin:18px 0 0}
+.benefits{display:grid;grid-template-columns:repeat(4,1fr);gap:30px}
+.benefit{text-align:center;padding:8px}
+.benefit .ic{width:56px;height:56px;margin:0 auto 22px;display:flex;align-items:center;justify-content:center;border:1px solid var(--gold);border-radius:50%}
+.benefit .ic svg{width:26px;height:26px;stroke:var(--gold-2);fill:none;stroke-width:1.3}
+.benefit h3{font-family:var(--serif);font-size:23px;font-weight:600;margin-bottom:10px}
+.benefit p{font-size:14.5px;line-height:1.6;color:var(--muted);font-weight:300}
+@media(max-width:820px){.benefits{grid-template-columns:repeat(2,1fr);gap:40px 24px}}
+
+/* ---------- BENTO SHOWCASE ---------- */
+.bento{display:grid;grid-template-columns:repeat(3,1fr);grid-auto-rows:260px;gap:20px}
+.bento .cell{position:relative;overflow:hidden;border-radius:4px;background:var(--navy)}
+.bento .cell img,.bento .cell video{width:100%;height:100%;object-fit:cover;transition:transform 1s ease}
+.bento .cell:hover img,.bento .cell:hover video{transform:scale(1.06)}
+.bento .cell .lbl{position:absolute;left:22px;bottom:20px;color:var(--cream);z-index:2}
+.bento .cell .lbl .t{font-family:var(--serif);font-size:24px;font-weight:600}
+.bento .cell .lbl .s{font-size:11px;letter-spacing:.18em;text-transform:uppercase;opacity:.85;margin-top:2px}
+.bento .cell::after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(15,20,35,.65),transparent 55%);z-index:1}
+.bento .big{grid-column:span 2;grid-row:span 2}
+.bento .tall{grid-row:span 2}
+@media(max-width:820px){.bento{grid-template-columns:repeat(2,1fr);grid-auto-rows:200px}.bento .big{grid-column:span 2}}
+
+/* ---------- SPLIT / STORY ---------- */
+.split{display:grid;grid-template-columns:1fr 1fr;align-items:center;gap:70px}
+.split.rev{direction:rtl}.split.rev>*{direction:ltr}
+.split .media{position:relative;border-radius:4px;overflow:hidden;aspect-ratio:4/5}
+.split .media img{width:100%;height:100%;object-fit:cover}
+.split .txt .eyebrow{margin-bottom:18px}
+.split .txt h2{font-family:var(--serif);font-weight:500;font-size:clamp(30px,4vw,48px);line-height:1.08;margin-bottom:22px}
+.split .txt p{font-size:16px;line-height:1.75;color:#4a4638;font-weight:300;margin-bottom:18px;max-width:460px}
+.stats{display:flex;gap:44px;margin-top:34px}
+.stats .n{font-family:var(--serif);font-size:44px;font-weight:600;color:var(--navy);line-height:1}
+.stats .l{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-top:6px}
+@media(max-width:820px){.split{grid-template-columns:1fr;gap:34px}.split.rev{direction:ltr}}
+
+/* ---------- SHOP ---------- */
+.shop-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
+.product{background:var(--surface,#fff);border:1px solid var(--cream-2);border-radius:4px;overflow:hidden;transition:transform .4s ease,box-shadow .4s ease}
+.product:hover{transform:translateY(-6px);box-shadow:0 24px 50px -30px rgba(20,28,48,.4)}
+.product .ph{aspect-ratio:1;background:var(--navy);overflow:hidden}
+.product .ph img,.product .ph video{width:100%;height:100%;object-fit:cover;transition:transform .8s ease}
+.product:hover .ph img{transform:scale(1.05)}
+.product .info{padding:22px 22px 26px}
+.product .info h3{font-family:var(--serif);font-size:22px;font-weight:600}
+.product .info .d{font-size:13px;color:var(--muted);margin:4px 0 14px;font-weight:300}
+.product .info .row{display:flex;align-items:center;justify-content:space-between}
+.product .price{font-family:var(--serif);font-size:22px;font-weight:600;color:var(--navy)}
+.product .add{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--gold-2);border:1px solid var(--gold);padding:9px 16px;transition:.3s}
+.product .add:hover{background:var(--gold);color:var(--navy)}
+@media(max-width:820px){.shop-grid{grid-template-columns:1fr;max-width:420px;margin:0 auto}}
+
+/* ---------- REVIEWS ---------- */
+#reviews{background:var(--navy);color:var(--cream)}
+#reviews .sec-head h2{color:var(--cream)}
+.reviews{display:grid;grid-template-columns:repeat(3,1fr);gap:26px}
+.review{background:var(--navy-2);border:1px solid rgba(201,168,106,.22);border-radius:4px;padding:32px 28px}
+.review .stars{color:var(--gold);letter-spacing:3px;margin-bottom:16px;font-size:14px}
+.review p{font-family:var(--serif);font-size:19px;line-height:1.5;font-style:italic;font-weight:400;margin-bottom:22px}
+.review .who{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--gold)}
+@media(max-width:820px){.reviews{grid-template-columns:1fr}}
+
+/* ---------- FAQ ---------- */
+.faq{max-width:760px;margin:0 auto}
+.qa{border-bottom:1px solid var(--cream-2)}
+.qa button{width:100%;text-align:left;background:none;border:none;cursor:pointer;
+  padding:26px 0;display:flex;justify-content:space-between;align-items:center;
+  font-family:var(--serif);font-size:22px;font-weight:600;color:var(--navy)}
+.qa .plus{font-family:var(--sans);font-size:24px;font-weight:300;transition:transform .3s;color:var(--gold-2)}
+.qa.open .plus{transform:rotate(45deg)}
+.qa .ans{max-height:0;overflow:hidden;transition:max-height .4s ease}
+.qa .ans p{padding:0 0 26px;font-size:15.5px;line-height:1.7;color:#4a4638;font-weight:300;max-width:640px}
+
+/* ---------- NEWSLETTER / CTA ---------- */
+.cta{position:relative;text-align:center;color:var(--cream);padding:130px 0;overflow:hidden}
+.cta img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0}
+.cta::after{content:"";position:absolute;inset:0;background:rgba(15,20,35,.72);z-index:1}
+.cta .wrap{position:relative;z-index:2}
+.cta h2{font-family:var(--serif);font-weight:500;font-size:clamp(34px,5vw,58px);margin:16px 0 18px}
+.cta p{font-weight:300;opacity:.9;max-width:460px;margin:0 auto 30px}
+.subform{display:flex;max-width:440px;margin:0 auto;gap:0}
+.subform input{flex:1;padding:16px 18px;border:1px solid rgba(245,237,226,.4);background:rgba(245,237,226,.08);color:var(--cream);font-family:var(--sans);font-size:14px}
+.subform input::placeholder{color:rgba(245,237,226,.6)}
+.subform button{padding:16px 26px;background:var(--gold);color:var(--navy);border:none;font-size:12px;letter-spacing:.2em;text-transform:uppercase;font-weight:600;cursor:pointer;transition:.3s}
+.subform button:hover{background:var(--cream)}
+
+/* ---------- FOOTER ---------- */
+footer{background:var(--ink);color:var(--cream);padding:70px 0 34px}
+.fgrid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px;margin-bottom:50px}
+footer .brand{text-align:left;color:var(--cream)}
+footer .brand .sub{opacity:.7}
+footer .fcol p{opacity:.6;font-size:14px;line-height:1.7;font-weight:300;margin-top:14px;max-width:260px}
+footer h4{font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:18px}
+footer .fcol a{display:block;font-size:14px;opacity:.75;margin-bottom:12px;font-weight:300;transition:.3s}
+footer .fcol a:hover{opacity:1;color:var(--gold)}
+.fbot{border-top:1px solid rgba(245,237,226,.14);padding-top:26px;display:flex;justify-content:space-between;font-size:12px;opacity:.6;flex-wrap:wrap;gap:10px}
+@media(max-width:820px){.fgrid{grid-template-columns:1fr 1fr}}
+
+/* ---------- CRAFT / DETAILS (editorial) ---------- */
+.editorial{padding:130px 0}
+.ed-head{max-width:660px;margin-bottom:60px}
+.ed-head .eyebrow{margin-bottom:16px}
+.ed-head h2{font-family:var(--serif);font-weight:500;font-size:clamp(38px,5.4vw,66px);line-height:1.02;margin-bottom:22px}
+.ed-head p{font-size:17px;line-height:1.75;color:#4a4638;font-weight:300;max-width:480px}
+.ed-media{display:grid;grid-template-columns:1.12fr .88fr;gap:26px;align-items:end}
+.ed-media figure{overflow:hidden;border-radius:4px;background:var(--navy)}
+.ed-media figure img{width:100%;height:100%;object-fit:cover;display:block;transition:transform 1.3s ease}
+.ed-media figure.a{aspect-ratio:4/5}
+.ed-media figure.b{aspect-ratio:3/4;margin-bottom:46px}
+.ed-media figure:hover img{transform:scale(1.045)}
+.ed-points{display:grid;grid-template-columns:repeat(4,1fr);gap:26px;margin-top:58px;border-top:1px solid var(--cream-2);padding-top:42px}
+.ed-points>div{display:flex;flex-direction:column;gap:12px}
+.ed-points .num{font-size:13px;color:var(--gold-2);letter-spacing:.18em}
+.ed-points .lbl2{font-family:var(--serif);font-size:22px;font-weight:600;color:var(--navy);line-height:1.15}
+@media(max-width:820px){.ed-media{grid-template-columns:1fr;gap:18px}.ed-media figure.b{margin-bottom:0}.ed-points{grid-template-columns:1fr 1fr;gap:30px}}
+
+/* ---------- WHY SILK (manifesto) ---------- */
+.manifesto{background:var(--navy);color:var(--cream);padding:clamp(110px,16vw,170px) 0;text-align:center}
+.manifesto h2{font-family:var(--serif);font-weight:400;font-size:clamp(32px,5.6vw,70px);line-height:1.2;letter-spacing:.005em}
+.manifesto p{max-width:520px;margin:46px auto 0;font-weight:300;font-size:17px;line-height:1.75;opacity:.8}
+
+/* ---------- RITUAL + PACKAGING ---------- */
+.ritual .media{aspect-ratio:16/11}
+.ritual-sign{text-align:center;margin-top:80px}
+.ritual-sign .eyebrow{margin-bottom:22px;display:inline-flex;align-items:center;gap:14px}
+.ritual-sign .eyebrow::before,.ritual-sign .eyebrow::after{content:"";width:34px;height:1px;background:var(--gold)}
+.ritual-quote{font-family:'Pinyon Script',cursive;max-width:900px;margin:0 auto;
+  font-size:clamp(36px,5.4vw,64px);line-height:1.3;color:var(--navy)}
+@media(max-width:820px){.ritual-sign{margin-top:54px}}
+.gift-points{display:grid;grid-template-columns:1fr 1fr;gap:16px 26px;margin-top:34px;max-width:460px}
+.gift-points div{position:relative;padding-left:22px;font-size:15px;color:#4a4638;font-weight:400}
+.gift-points div::before{content:"";position:absolute;left:0;top:7px;width:7px;height:7px;background:var(--gold);border-radius:50%}
+
+/* ---------- SHOP (single product) ---------- */
+.product-feature{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center}
+.product-feature .pf-media{border-radius:6px;overflow:hidden;aspect-ratio:1;background:var(--navy)}
+.product-feature .pf-media img{width:100%;height:100%;object-fit:cover;display:block;transition:transform 1.3s ease}
+.product-feature .pf-media:hover img{transform:scale(1.04)}
+.pf-txt .eyebrow{margin-bottom:16px}
+.pf-txt h2{font-family:var(--serif);font-weight:500;font-size:clamp(34px,4.6vw,54px);line-height:1.05;margin-bottom:20px}
+.pf-txt p{font-size:16px;line-height:1.75;color:#4a4638;font-weight:300;max-width:440px;margin-bottom:30px}
+.pf-price{display:flex;align-items:baseline;gap:16px;margin-bottom:32px}
+.pf-price .amt{font-family:var(--serif);font-size:38px;font-weight:600;color:var(--navy);line-height:1}
+.pf-price .meta{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.btn.buy{padding:18px 46px}
+@media(max-width:820px){.product-feature{grid-template-columns:1fr;gap:34px}}
+
+/* reveal */
+.reveal{opacity:0;transform:translateY(28px);transition:opacity .7s ease,transform .7s ease}
+.reveal.in{opacity:1;transform:none}
+</style>
+</head>
+<body>
+
+<header id="hdr">
+  <div class="nav-left">
+    <nav>
+      <a href="#shop">Shop</a>
+      <a href="#craft">Craft</a>
+      <a href="#why-silk">Silk</a>
+    </nav>
+  </div>
+  <a href="#top" class="brand">
+    <div class="name serif">Hévara</div>
+    <div class="sub">Silk Collection</div>
+  </a>
+  <div class="nav-right">
+    <nav><a href="#reviews">Reviews</a><a href="#faq">FAQ</a></nav>
+    <div class="hicons">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 3.6-7 8-7s8 3 8 7"/></svg>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M6 7h12l-1.2 12.5a1 1 0 0 1-1 .9H8.2a1 1 0 0 1-1-.9L6 7z"/><path d="M9 7V5.5A3 3 0 0 1 15 5.5V7"/></svg>
+    </div>
+  </div>
+</header>
+
+<!-- HERO — clean photo, live text overlay -->
+<section class="hero" id="top">
+  <img class="bg" src="hero-main.jpg" alt="Hévara silk bonnet" />
+  <div class="veil"></div>
+  <div class="wrap">
+    <div class="hero-content">
+      <div class="eyebrow">Elegance never sleeps</div>
+      <h1>The luxury you wear.<br>The care you feel.</h1>
+      <p>Premium silk bonnets and accessories for your nightly ritual.</p>
+      <a href="#shop" class="btn">Discover the Collection</a>
+    </div>
+  </div>
+  <div class="hero-badges">
+    <div class="hbadge"><svg viewBox="0 0 24 24"><path d="M12 3c-3 4-6 6-6 10a6 6 0 0 0 12 0c0-4-3-6-6-10z"/></svg><span>Pure luxury momme silk</span></div>
+    <div class="hbadge"><svg viewBox="0 0 24 24"><path d="M12 3a6 6 0 0 0-6 6c0 4 6 12 6 12s6-8 6-12a6 6 0 0 0-6-6z"/><circle cx="12" cy="9" r="1.6"/></svg><span>Protects hair &amp; reduces frizz</span></div>
+    <div class="hbadge"><svg viewBox="0 0 24 24"><path d="M4 9l3 8h10l3-8-4 3-4-6-4 6-4-3z"/></svg><span>Timeless elegance</span></div>
+    <div class="hbadge"><svg viewBox="0 0 24 24"><path d="M20 14a8 8 0 1 1-8-11 6.5 6.5 0 0 0 8 11z"/></svg><span>Nightly ritual of self-care</span></div>
+  </div>
+  <div class="ticker">
+    <span>Pure Mulberry Silk</span><span>Considered in Every Detail</span><span>Presented Like an Heirloom</span><span>Made to Be Felt</span>
+  </div>
+</section>
+
+<!-- VIDEO REEL (autoplays once, stops on last frame) -->
+<section class="reel" id="ritual">
+  <video id="reelVideo" src="hero.mp4" autoplay muted playsinline preload="auto"></video>
+  <div class="veil2"></div>
+  <div class="cap reveal">
+    <div class="eyebrow" style="color:#c9a86a">The nightly ritual</div>
+    <h2 class="serif">The silk you wear.<br>The night you own.</h2>
+    <p>Hévara is not just worn. It is felt — a quiet kind of luxury that makes you feel beautifully cared for, like a queen even when no one is watching.</p>
+  </div>
+</section>
+
+<!-- SHOP (directly under the animation) -->
+<section class="block" id="shop">
+  <div class="wrap">
+    <div class="product-feature">
+      <a href="product.html" class="pf-media reveal" style="display:block"><img src="product-signature.jpg" alt="The Signature Bonnet — navy silk with gold bow"></a>
+      <div class="pf-txt reveal">
+        <div class="eyebrow">The Collection</div>
+        <h2 class="serif">The Signature Bonnet</h2>
+        <p>Deep navy luxury momme mulberry silk, a hand-tied silk bow and delicate hand-embroidered lace — the one piece that turns every night into a ritual.</p>
+        <div class="pf-price"><span class="amt serif">$48</span></div>
+        <a href="product.html" class="btn buy">Own the Elegance</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CRAFT / DETAILS (editorial) -->
+<section class="editorial" id="craft">
+  <div class="wrap">
+    <div class="ed-head reveal">
+      <div class="eyebrow">Craft &amp; details</div>
+      <h2 class="serif">Crafted Like Jewelry.<br>Worn Like Silk.</h2>
+      <p>Every Hévara bonnet is finished with intention — from the deep navy silk to the delicate lace, silk bow, and signature label.</p>
+    </div>
+    <div class="ed-media">
+      <figure class="a reveal"><img src="craft.jpg" alt="Hand-stitching lace onto the navy silk bonnet"></figure>
+      <figure class="b reveal"><img src="detail-macro.jpg" alt="Navy silk, cream silk bow, lace and Hévara label"></figure>
+    </div>
+    <div class="ed-points">
+      <div class="reveal"><span class="num serif">01</span><span class="lbl2">Deep Navy Silk</span></div>
+      <div class="reveal"><span class="num serif">02</span><span class="lbl2">Soft Lace Finish</span></div>
+      <div class="reveal"><span class="num serif">03</span><span class="lbl2">Signature Silk Bow</span></div>
+      <div class="reveal"><span class="num serif">04</span><span class="lbl2">Hévara Label Detail</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY SILK (manifesto) -->
+<section class="manifesto" id="why-silk">
+  <div class="wrap reveal">
+    <div class="eyebrow" style="color:#c9a86a;margin-bottom:30px">Silk</div>
+    <h2 class="serif">Does not pull.<br>Does not dry.<br>Does not disturb.</h2>
+    <p>It moves softly with your hair, through the night.</p>
+  </div>
+</section>
+
+<!-- SILK RITUAL + PACKAGING -->
+<section class="block ritual" id="ritual-gift" style="background:var(--cream-2)">
+  <div class="wrap">
+    <div class="split">
+      <div class="media reveal"><img src="packaging.jpg" alt="Hévara packaging — navy box, silk pouch and card"></div>
+      <div class="txt reveal">
+        <div class="eyebrow">The ritual</div>
+        <h2 class="serif">A Ritual Before Sleep.<br>A Gift Before It's Worn.</h2>
+        <p>Hévara protects your hair from friction while turning your evening routine into a quiet moment of luxury. Presented in elegant packaging, it feels special before the first night even begins.</p>
+      </div>
+    </div>
+    <div class="ritual-sign reveal">
+      <div class="eyebrow">A quote from a letter</div>
+      <div class="ritual-quote">More than a sleep cap.<br>A ritual of luxury.</div>
+    </div>
+  </div>
+</section>
+
+<!-- REVIEWS (editorial) -->
+<section class="block" id="reviews">
+  <div class="wrap">
+    <div class="sec-head reveal"><div class="eyebrow">In their words</div><h2 class="serif">Quietly loved</h2></div>
+    <div class="reviews">
+      <div class="review reveal"><p>"The first sleep bonnet I actually want to wear."</p></div>
+      <div class="review reveal"><p>"It feels like the final step of my evening ritual."</p></div>
+      <div class="review reveal"><p>"Beautiful enough to leave on my bedside table."</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="block" id="faq">
+  <div class="wrap">
+    <div class="sec-head reveal"><div class="eyebrow">Good to know</div><h2 class="serif">Questions &amp; Answers</h2></div>
+    <div class="faq">
+      <div class="qa"><button>What makes the silk so special?<span class="plus">+</span></button><div class="ans"><p>It's pure luxury mulberry silk in the finest momme weight — dense, durable and impossibly smooth. Every bonnet is finished and embroidered by hand.</p></div></div>
+      <div class="qa"><button>Will it fit all hair types?<span class="plus">+</span></button><div class="ans"><p>Yes. The adjustable elastic band comfortably holds everything from short hair to long braids, locs and thick curls.</p></div></div>
+      <div class="qa"><button>How do I care for it?<span class="plus">+</span></button><div class="ans"><p>Hand wash cold with mild soap, or machine wash in a mesh bag on delicate. Air dry away from direct heat.</p></div></div>
+      <div class="qa"><button>What's the shipping policy?<span class="plus">+</span></button><div class="ans"><p>Complimentary worldwide shipping, dispatched in 1–2 business days in signature Hévara packaging.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta">
+  <img src="product-vanity.jpg" alt="">
+  <div class="wrap">
+    <div class="eyebrow" style="color:#c9a86a">Join the ritual</div>
+    <h2 class="serif">Silk is self-care.<br>Start yours tonight.</h2>
+    <p>Get 10% off your first bonnet and early access to new drops.</p>
+    <form class="subform" onsubmit="event.preventDefault();this.querySelector('input').value='Thank you ✦';">
+      <input type="email" placeholder="Your email" required />
+      <button type="submit">Get 10% Off</button>
+    </form>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="wrap">
+    <div class="fgrid">
+      <div class="fcol">
+        <div class="brand"><div class="name serif">Hévara</div><div class="sub">Silk Collection</div></div>
+        <p>Premium silk bonnets and accessories for your nightly ritual. Made to protect, designed to be loved.</p>
+      </div>
+      <div class="fcol"><h4>Shop</h4><a href="#shop">Signature Bonnet</a><a href="#shop">Lace Edition</a><a href="#shop">Gift Set</a></div>
+      <div class="fcol"><h4>Company</h4><a href="#craft">Craft</a><a href="#why-silk">Silk</a><a href="#reviews">Reviews</a></div>
+      <div class="fcol"><h4>Support</h4><a href="#faq">FAQ</a><a href="#">Shipping</a><a href="#">Contact</a></div>
+    </div>
+    <div class="fbot"><span>© 2026 Hévara Silk Collection. All rights reserved.</span><span>Instagram · TikTok · Pinterest</span></div>
+  </div>
+</footer>
+
+<script>
+// header background appears on scroll
+const hdr=document.getElementById('hdr');
+addEventListener('scroll',()=>hdr.classList.toggle('scrolled',scrollY>60),{passive:true});
+
+// reveal on scroll
+const io=new IntersectionObserver((es)=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.16});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+// Video reel — starts when it scrolls into view, plays once, holds last frame.
+(function(){
+  const vid=document.getElementById('reelVideo');
+  if(!vid) return;
+  vid.loop=false; vid.pause(); vid.currentTime=0;
+  let played=false;
+  vid.addEventListener('ended',()=>{vid.pause();}); // freeze on last frame
+  const vObs=new IntersectionObserver((es)=>{
+    es.forEach(e=>{
+      if(e.isIntersecting && !played){
+        played=true;
+        const p=vid.play(); if(p&&p.catch) p.catch(()=>{});
+      }
+    });
+  },{threshold:.4});
+  vObs.observe(vid);
+})();
+
+// FAQ accordion
+document.querySelectorAll('.qa button').forEach(b=>{
+  b.addEventListener('click',()=>{
+    const qa=b.parentElement, ans=qa.querySelector('.ans'), open=qa.classList.contains('open');
+    document.querySelectorAll('.qa').forEach(x=>{x.classList.remove('open');x.querySelector('.ans').style.maxHeight=null});
+    if(!open){qa.classList.add('open');ans.style.maxHeight=ans.scrollHeight+'px'}
+  });
+});
+</script>
+</body>
+</html>

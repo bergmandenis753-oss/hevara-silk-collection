@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>The Signature Bonnet — Hévara</title>
+<meta name="description" content="The Signature Bonnet — navy luxury momme mulberry silk with a hand-tied silk bow and delicate hand-embroidered lace." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet" />
+<style>
+:root{
+  --navy:#141c30;--navy-2:#1c2743;--cream:#f5ede2;--cream-2:#ede2d2;
+  --gold:#c9a86a;--gold-2:#b8945a;--muted:#8a8377;--ink:#101623;
+  --serif:'Cormorant Garamond',Georgia,serif;--sans:'Outfit',system-ui,sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:var(--sans);background:var(--cream);color:var(--ink);-webkit-font-smoothing:antialiased}
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1240px;margin:0 auto;padding:0 32px}
+.serif{font-family:var(--serif)}
+.eyebrow{font-size:12px;letter-spacing:.32em;text-transform:uppercase;font-weight:500;color:var(--gold-2)}
+
+/* header */
+header{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;
+  padding:14px 40px;background:rgba(245,237,226,.9);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);
+  box-shadow:0 1px 0 rgba(20,28,48,.08)}
+header nav{display:flex;gap:34px}
+header nav a{font-size:12px;letter-spacing:.18em;text-transform:uppercase;font-weight:500;color:var(--navy);opacity:.85;transition:.3s}
+header nav a:hover{opacity:1;color:var(--gold)}
+.brand{text-align:center;line-height:1;color:var(--navy)}
+.brand .name{font-family:var(--serif);font-size:26px;font-weight:600}
+.brand .sub{font-size:8.5px;letter-spacing:.42em;text-transform:uppercase;margin-top:2px;opacity:.75}
+.nav-left,.nav-right{flex:1;display:flex;align-items:center}
+.nav-right{justify-content:flex-end;gap:24px}
+.hicons{display:flex;gap:20px;color:var(--navy)}
+.hicons svg{width:19px;height:19px;cursor:pointer}
+.hicons svg:hover{color:var(--gold)}
+
+/* product */
+main{padding:120px 0 90px}
+.crumb{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-bottom:30px}
+.crumb a:hover{color:var(--gold-2)}
+.pdp{display:grid;grid-template-columns:1.05fr .95fr;gap:64px;align-items:start}
+
+/* gallery */
+.gallery{position:sticky;top:96px}
+.stage{position:relative;border-radius:8px;overflow:hidden;background:var(--navy);aspect-ratio:1}
+.stage img{width:100%;height:100%;object-fit:cover;opacity:0;position:absolute;inset:0;transition:opacity .5s ease}
+.stage img.on{opacity:1;position:relative}
+.arrow{position:absolute;top:50%;transform:translateY(-50%);z-index:3;width:44px;height:44px;border-radius:50%;
+  background:rgba(245,237,226,.85);display:flex;align-items:center;justify-content:center;cursor:pointer;border:none;transition:.3s}
+.arrow:hover{background:#fff}
+.arrow svg{width:20px;height:20px;stroke:var(--navy);fill:none;stroke-width:1.6}
+.arrow.prev{left:16px}.arrow.next{right:16px}
+.thumbs{display:flex;gap:12px;margin-top:14px}
+.thumbs button{flex:1;aspect-ratio:1;border-radius:5px;overflow:hidden;border:1.5px solid transparent;cursor:pointer;padding:0;background:var(--navy);transition:border .3s}
+.thumbs button.active{border-color:var(--gold)}
+.thumbs img{width:100%;height:100%;object-fit:cover}
+
+/* info */
+.info .eyebrow{margin-bottom:16px}
+.info h1{font-family:var(--serif);font-weight:500;font-size:clamp(38px,4.6vw,56px);line-height:1.03;margin-bottom:18px}
+.rating{display:flex;align-items:center;gap:10px;margin-bottom:24px}
+.rating .stars{color:var(--gold);letter-spacing:3px;font-size:14px}
+.rating .count{font-size:13px;color:var(--muted)}
+.price{font-family:var(--serif);font-size:40px;font-weight:600;color:var(--navy);margin-bottom:6px}
+.ship{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:28px}
+.lead{font-size:16px;line-height:1.75;color:#4a4638;font-weight:300;margin-bottom:28px;max-width:480px}
+.specs{list-style:none;margin-bottom:34px}
+.specs li{position:relative;padding-left:24px;font-size:15px;color:#4a4638;margin-bottom:12px}
+.specs li::before{content:"";position:absolute;left:0;top:8px;width:7px;height:7px;background:var(--gold);border-radius:50%}
+.buy-row{display:flex;gap:14px;align-items:stretch;margin-bottom:22px;flex-wrap:wrap}
+.qty{display:flex;align-items:center;border:1px solid var(--cream-2);border-radius:2px;background:#fff}
+.qty button{width:44px;height:56px;border:none;background:none;font-size:20px;color:var(--navy);cursor:pointer}
+.qty span{width:40px;text-align:center;font-size:16px}
+.btn{display:inline-flex;align-items:center;justify-content:center;padding:0 44px;height:56px;background:var(--gold);color:var(--navy);
+  font-size:12px;letter-spacing:.22em;text-transform:uppercase;font-weight:600;border:none;cursor:pointer;transition:.3s;flex:1;min-width:200px}
+.btn:hover{background:var(--navy);color:var(--cream)}
+.assure{display:flex;gap:22px;flex-wrap:wrap;font-size:12.5px;color:var(--muted);margin-bottom:34px}
+.assure span{display:flex;align-items:center;gap:7px}
+.assure svg{width:15px;height:15px;stroke:var(--gold-2);fill:none;stroke-width:1.5}
+
+/* accordion */
+.acc{border-top:1px solid var(--cream-2)}
+.acc .qa{border-bottom:1px solid var(--cream-2)}
+.acc button.q{width:100%;text-align:left;background:none;border:none;cursor:pointer;padding:20px 0;display:flex;justify-content:space-between;align-items:center;
+  font-family:var(--serif);font-size:20px;font-weight:600;color:var(--navy)}
+.acc .plus{font-family:var(--sans);font-size:22px;font-weight:300;color:var(--gold-2);transition:transform .3s}
+.acc .qa.open .plus{transform:rotate(45deg)}
+.acc .ans{max-height:0;overflow:hidden;transition:max-height .4s ease}
+.acc .ans p{padding:0 0 22px;font-size:15px;line-height:1.7;color:#4a4638;font-weight:300;max-width:520px}
+
+/* footer */
+footer{background:var(--ink);color:var(--cream);padding:60px 0 30px;margin-top:10px}
+.fbot{display:flex;justify-content:space-between;font-size:12px;opacity:.6;flex-wrap:wrap;gap:10px;border-top:1px solid rgba(245,237,226,.14);padding-top:24px}
+footer .fbrand .name{font-family:var(--serif);font-size:24px}
+footer .fbrand .sub{font-size:8.5px;letter-spacing:.42em;text-transform:uppercase;opacity:.7;margin-top:2px;margin-bottom:26px}
+
+@media(max-width:900px){.pdp{grid-template-columns:1fr;gap:34px}.gallery{position:static}header{padding:12px 20px}header nav{display:none}}
+
+.toast{position:fixed;bottom:26px;left:50%;transform:translateX(-50%) translateY(20px);background:var(--navy);color:var(--cream);
+  padding:14px 26px;border-radius:4px;font-size:13px;letter-spacing:.06em;opacity:0;pointer-events:none;transition:.4s;z-index:200}
+.toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="nav-left"><nav><a href="index.html#shop">Shop</a><a href="index.html#craft">Craft</a><a href="index.html#why-silk">Silk</a></nav></div>
+  <a href="index.html" class="brand"><div class="name serif">Hévara</div><div class="sub">Silk Collection</div></a>
+  <div class="nav-right">
+    <nav><a href="index.html#reviews">Reviews</a><a href="index.html#faq">FAQ</a></nav>
+    <div class="hicons">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 3.6-7 8-7s8 3 8 7"/></svg>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M6 7h12l-1.2 12.5a1 1 0 0 1-1 .9H8.2a1 1 0 0 1-1-.9L6 7z"/><path d="M9 7V5.5A3 3 0 0 1 15 5.5V7"/></svg>
+    </div>
+  </div>
+</header>
+
+<main>
+  <div class="wrap">
+    <div class="crumb"><a href="index.html">Home</a> &nbsp;/&nbsp; <a href="index.html#shop">Shop</a> &nbsp;/&nbsp; The Signature Bonnet</div>
+    <div class="pdp">
+
+      <!-- GALLERY -->
+      <div class="gallery">
+        <div class="stage" id="stage">
+          <img class="on" src="gift-set.jpg" alt="Hévara gift box with bonnet, pouch and card" />
+          <img src="product-signature.jpg" alt="The Signature Bonnet on gold silk" />
+          <img src="product-bonnet.jpg" alt="Bonnet styled on silk bedding" />
+          <img src="detail-macro.jpg" alt="Silk, bow, lace and Hévara label detail" />
+          <img src="product-lace.jpg" alt="Navy silk bonnet with lace, front view" />
+          <img src="packaging.jpg" alt="Hévara box, pouch and card" />
+          <button class="arrow prev" aria-label="Previous image"><svg viewBox="0 0 24 24"><path d="M15 6l-6 6 6 6"/></svg></button>
+          <button class="arrow next" aria-label="Next image"><svg viewBox="0 0 24 24"><path d="M9 6l6 6-6 6"/></svg></button>
+        </div>
+        <div class="thumbs" id="thumbs">
+          <button class="active"><img src="gift-set.jpg" alt=""></button>
+          <button><img src="product-signature.jpg" alt=""></button>
+          <button><img src="product-bonnet.jpg" alt=""></button>
+          <button><img src="detail-macro.jpg" alt=""></button>
+          <button><img src="product-lace.jpg" alt=""></button>
+          <button><img src="packaging.jpg" alt=""></button>
+        </div>
+      </div>
+
+      <!-- INFO -->
+      <div class="info">
+        <div class="eyebrow">The Collection</div>
+        <h1 class="serif">The Signature Bonnet</h1>
+        <div class="rating"><span class="stars">★★★★★</span><span class="count">4.9 · 214 reviews</span></div>
+        <div class="price">$48</div>
+        <p class="lead">Deep navy luxury momme mulberry silk, a hand-tied silk bow and delicate hand-embroidered lace. The one piece that turns every night into a quiet ritual — and every morning into softer, calmer hair.</p>
+        <ul class="specs">
+          <li>Pure luxury mulberry silk — the finest momme weight</li>
+          <li>Hand-tied champagne silk bow</li>
+          <li>Delicate scalloped lace, embroidered by hand</li>
+          <li>Hand-made, with a piece of soul in every bonnet</li>
+        </ul>
+        <div class="buy-row">
+          <div class="qty"><button id="minus">−</button><span id="q">1</span><button id="plus">+</button></div>
+          <button class="btn" id="add">Own the Elegance</button>
+        </div>
+        <div class="acc">
+          <div class="qa open"><button class="q">Details<span class="plus">+</span></button><div class="ans"><p>A generously sized sleep bonnet in deep navy silk, finished with a hand-tied silk bow, hand-embroidered scalloped lace and a woven Hévara label. Roomy enough for braids, locs, curls and long hair.</p></div></div>
+          <div class="qa"><button class="q">Materials &amp; care<span class="plus">+</span></button><div class="ans"><p>Outer and lining: pure luxury mulberry silk in the finest momme weight, embroidered by hand. Hand wash cold with mild soap, or machine wash in a mesh bag on delicate. Air dry away from direct heat.</p></div></div>
+          <div class="qa"><button class="q">Shipping<span class="plus">+</span></button><div class="ans"><p>Complimentary worldwide shipping, dispatched in 1–2 business days in signature Hévara packaging.</p></div></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="fbrand"><div class="name serif">Hévara</div><div class="sub">Silk Collection</div></div>
+    <div class="fbot"><span>© 2026 Hévara Silk Collection. All rights reserved.</span><span>Instagram · TikTok · Pinterest</span></div>
+  </div>
+</footer>
+
+<div class="toast" id="toast">Added to your bag ✦</div>
+
+<script>
+// gallery
+const stage=document.getElementById('stage');
+const imgs=[...stage.querySelectorAll('img')];
+const thumbs=[...document.querySelectorAll('#thumbs button')];
+let i=0;
+function show(n){
+  i=(n+imgs.length)%imgs.length;
+  imgs.forEach((im,k)=>im.classList.toggle('on',k===i));
+  thumbs.forEach((t,k)=>t.classList.toggle('active',k===i));
+}
+thumbs.forEach((t,k)=>t.addEventListener('click',()=>show(k)));
+document.querySelector('.arrow.prev').addEventListener('click',()=>show(i-1));
+document.querySelector('.arrow.next').addEventListener('click',()=>show(i+1));
+addEventListener('keydown',e=>{if(e.key==='ArrowLeft')show(i-1);if(e.key==='ArrowRight')show(i+1)});
+
+// quantity
+let q=1;const qEl=document.getElementById('q');
+document.getElementById('plus').onclick=()=>{q++;qEl.textContent=q};
+document.getElementById('minus').onclick=()=>{if(q>1){q--;qEl.textContent=q}};
+
+// add to bag toast
+const toast=document.getElementById('toast');
+document.getElementById('add').onclick=()=>{toast.classList.add('show');setTimeout(()=>toast.classList.remove('show'),1800)};
+
+// accordion
+document.querySelectorAll('.acc .q').forEach(b=>{
+  b.addEventListener('click',()=>{
+    const qa=b.parentElement,ans=qa.querySelector('.ans'),open=qa.classList.contains('open');
+    document.querySelectorAll('.acc .qa').forEach(x=>{x.classList.remove('open');x.querySelector('.ans').style.maxHeight=null});
+    if(!open){qa.classList.add('open');ans.style.maxHeight=ans.scrollHeight+'px'}
+  });
+});
+// open first accordion by default
+const firstAns=document.querySelector('.acc .qa.open .ans');if(firstAns)firstAns.style.maxHeight=firstAns.scrollHeight+'px';
+</script>
+</body>
+</html>

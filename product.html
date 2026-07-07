@@ -72,6 +72,13 @@ main{padding:120px 0 90px}
 .specs{list-style:none;margin-bottom:34px}
 .specs li{position:relative;padding-left:24px;font-size:15px;color:#4a4638;margin-bottom:12px}
 .specs li::before{content:"";position:absolute;left:0;top:8px;width:7px;height:7px;background:var(--gold);border-radius:50%}
+.colour{margin-bottom:28px}
+.colour .clbl{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-bottom:12px}
+.colour .clbl b{color:var(--navy);font-weight:500}
+.swatches{display:flex;gap:12px}
+.swatch{width:34px;height:34px;border-radius:50%;cursor:pointer;border:1px solid var(--cream-2);padding:0;transition:transform .2s ease}
+.swatch:hover{transform:scale(1.08)}
+.swatch.active{box-shadow:0 0 0 2px var(--cream),0 0 0 3.5px var(--gold)}
 .buy-row{display:flex;gap:14px;align-items:stretch;margin-bottom:22px;flex-wrap:wrap}
 .qty{display:flex;align-items:center;border:1px solid var(--cream-2);border-radius:2px;background:#fff}
 .qty button{width:44px;height:56px;border:none;background:none;font-size:20px;color:var(--navy);cursor:pointer}
@@ -160,6 +167,16 @@ footer .fbrand .sub{font-size:8.5px;letter-spacing:.42em;text-transform:uppercas
           <li>Delicate scalloped lace, embroidered by hand</li>
           <li>Hand-made, with a piece of soul in every bonnet</li>
         </ul>
+        <div class="colour">
+          <div class="clbl">Colour — <b id="colourName">Navy</b></div>
+          <div class="swatches">
+            <button class="swatch active" style="background:#141c30" data-name="Navy" data-src="product-signature.jpg" aria-label="Navy"></button>
+            <button class="swatch" style="background:#0e0e12" data-name="Black" data-src="color-black.jpg" aria-label="Black"></button>
+            <button class="swatch" style="background:#5e1a2b" data-name="Burgundy" data-src="color-burgundy.jpg" aria-label="Burgundy"></button>
+            <button class="swatch" style="background:#3d241c" data-name="Espresso" data-src="color-espresso.jpg" aria-label="Espresso"></button>
+            <button class="swatch" style="background:#b07c6f" data-name="Rose" data-src="color-rose.jpg" aria-label="Rose"></button>
+          </div>
+        </div>
         <div class="buy-row">
           <div class="qty"><button id="minus">−</button><span id="q">1</span><button id="plus">+</button></div>
           <button class="btn" id="add">Own the Elegance</button>
@@ -199,6 +216,19 @@ thumbs.forEach((t,k)=>t.addEventListener('click',()=>show(k)));
 document.querySelector('.arrow.prev').addEventListener('click',()=>show(i-1));
 document.querySelector('.arrow.next').addEventListener('click',()=>show(i+1));
 addEventListener('keydown',e=>{if(e.key==='ArrowLeft')show(i-1);if(e.key==='ArrowRight')show(i+1)});
+
+// colour selector — swaps the main product photo (gallery slide 2)
+const colourName=document.getElementById('colourName');
+document.querySelectorAll('.swatch').forEach(sw=>{
+  sw.addEventListener('click',()=>{
+    document.querySelectorAll('.swatch').forEach(s=>s.classList.remove('active'));
+    sw.classList.add('active');
+    colourName.textContent=sw.dataset.name;
+    imgs[1].src=sw.dataset.src;
+    thumbs[1].querySelector('img').src=sw.dataset.src;
+    show(1);
+  });
+});
 
 // quantity
 let q=1;const qEl=document.getElementById('q');

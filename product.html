@@ -170,11 +170,11 @@ footer .fbrand .sub{font-size:8.5px;letter-spacing:.42em;text-transform:uppercas
         <div class="colour">
           <div class="clbl">Colour — <b id="colourName">Navy</b></div>
           <div class="swatches">
-            <button class="swatch active" style="background:#141c30" data-name="Navy" data-src="box-navy.jpg" aria-label="Navy"></button>
-            <button class="swatch" style="background:#0e0e12" data-name="Black" data-src="box-black.jpg" aria-label="Black"></button>
-            <button class="swatch" style="background:#5e1a2b" data-name="Burgundy" data-src="box-burgundy.jpg" aria-label="Burgundy"></button>
-            <button class="swatch" style="background:#3d241c" data-name="Espresso" data-src="box-espresso.jpg" aria-label="Espresso"></button>
-            <button class="swatch" style="background:#b07c6f" data-name="Rose" data-src="box-rose.jpg" aria-label="Rose"></button>
+            <button class="swatch active" style="background:#141c30" data-name="Navy" data-src="box-navy.jpg" data-bonnet="product-signature.jpg" aria-label="Navy"></button>
+            <button class="swatch" style="background:#0e0e12" data-name="Black" data-src="box-black.jpg" data-bonnet="color-black.jpg" aria-label="Black"></button>
+            <button class="swatch" style="background:#5e1a2b" data-name="Burgundy" data-src="box-burgundy.jpg" data-bonnet="color-burgundy.jpg" aria-label="Burgundy"></button>
+            <button class="swatch" style="background:#3d241c" data-name="Espresso" data-src="box-espresso.jpg" data-bonnet="color-espresso.jpg" aria-label="Espresso"></button>
+            <button class="swatch" style="background:#b07c6f" data-name="Rose" data-src="box-rose.jpg" data-bonnet="color-rose.jpg" aria-label="Rose"></button>
           </div>
         </div>
         <div class="buy-row">
@@ -226,6 +226,10 @@ document.querySelectorAll('.swatch').forEach(sw=>{
     colourName.textContent=sw.dataset.name;
     imgs[0].src=sw.dataset.src;
     thumbs[0].querySelector('img').src=sw.dataset.src;
+    if(sw.dataset.bonnet){
+      imgs[1].src=sw.dataset.bonnet;
+      thumbs[1].querySelector('img').src=sw.dataset.bonnet;
+    }
     show(0);
   });
 });

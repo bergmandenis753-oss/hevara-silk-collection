@@ -123,6 +123,11 @@ header.scrolled .hicons{color:var(--navy)}
   .hero-content h1{font-size:clamp(42px,12vw,60px)}
   section.block,.editorial{padding:72px 0}
   .wrap{padding:0 22px}
+  /* stable viewport height so the hero doesn't zoom on scroll (iOS) */
+  .hero{min-height:100svh}
+  .hero img.bg{object-position:66% center}
+  .reel{height:100svh}
+  .reel video{object-position:34% center}
 }
 
 /* ---------- VIDEO REEL (plays once, stops on last frame) ---------- */
